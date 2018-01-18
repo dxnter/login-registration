@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Email Validation</title>
+    <meta charset="utf-8">
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <h4 class="card-header text-center">Register</h4>
+                    <div class="card-block">
+                        <form method="post" action="/register">
+                            {% with messages = get_flashed_messages(category_filter=["register"]) %} 
+                            {% if messages %} {% for message in messages %}
+                            <div class="alert alert-danger" role="alert">
+                                {{ message }}
+                            </div>
+                            {% endfor %} {% endif %} {% endwith %}
+                            <div class="form-group">
+                                <label>First Name</label>
+                                <input name="first_name" type="text" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Last Name</label>
+                                <input name="last_name" type="text" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input name="email" type="text" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input name="password" type="password" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Confirm Password</label>
+                                <input name="confirm_password" type="password" class="form-control">
+                            </div>
+                            <div class="mx-auto text-center">
+                                <button class="btn btn-primary">Create Account</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <h4 class="card-header text-center">Login</h4>
+                    <div class="card-block">
+                        <form method="post" action="/login">
+                            {% with messages = get_flashed_messages(category_filter=["login"]) %} 
+                            {% if messages %} {% for message in messages %}
+                            <div class="alert alert-danger" role="alert">
+                                {{ message }}
+                            </div>
+                            {% endfor %} {% endif %} {% endwith %}
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input name="email" type="text" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input name="password" type="password" class="form-control">
+                            </div>
+                            <div class="mx-auto text-center">
+                                <button class="btn btn-primary">Login</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js">
+    </script>
+</body>
+
+</html>
