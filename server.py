@@ -39,6 +39,7 @@ def register():
         return redirect('/')
 
     session['first_name'] = request.form['first_name']
+    session['email'] = request.form['email']
     last_name = request.form['last_name']
     password = request.form['password']
     salt = binascii.b2a_hex(os.urandom(15))
